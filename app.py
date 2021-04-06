@@ -129,14 +129,17 @@ def logged_in():
         morse = request.form.get("morsecode")
         if(morse!=None):
             decoded = morseToString(morse) 
-        if(stringconvert!=None):
+            stringconvert=""
+        elif(stringconvert!=None):
             converted=encrypt(stringconvert.upper())
+            morse=""
+            
         
-        return render_template('logged_in.html', decoded=decoded,stringconvert=converted)
+        return render_template('logged_in.html', decoded=decoded,stringconvert=converted,mor=morse,str=stringconvert)
     if request.method == "GET":
         if "email" in session:
             # email = session["email"]
-            return render_template('logged_in.html',decoded="",stringconvert="")
+            return render_template('logged_in.html',decoded="",stringconvert="",mor="",str="")
         else:
             return redirect(url_for("login"))
 
