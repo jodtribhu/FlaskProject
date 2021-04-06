@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+  <title>{% block title %}{%endblock %}</title>
+ 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <style>
+
+</style>
+</head>
+
+<body>
+<header class="navigationheader flex-gap">
+    <nav>
+        <h1> <a href="/" class="atitle">MORSE CODE -- --- .-. ... . / -.-. --- -.. .</a> </h1>
+        <ul>
+            <li><a class="iteminnavigation " href="/register">Register</a></li>
+            <li> <a class="iteminnavigation" href="/login">Login</a></li>
+            <li><a class="iteminnavigation" href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+{% block content %}{% endblock %}
+</body>
+</html>

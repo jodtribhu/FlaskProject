@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Register System{% endblock %}
+
+{% block content %}
+
+<div class="card1">
+  <div class="login">
+    <p>Register</p>
+  </div>
+  <form action="/register" method="post">
+    <div class="eachinput">
+        <label class="label"for="Fullname">Full name</label>
+        <input name="fullname" class="input" id="inputFullName" aria-describedby="emailHelp" placeholder="Enter full name" required>
+    </div>
+    <div class="eachinput">
+        <label class="label" for="InputEmail">Email address</label>
+        <input name="email" class="input" id="InputEmail"  placeholder="Enter email" required>
+    </div>
+  <div class="eachinput">
+    <label class="label" for="InputPassword">Password</label>
+    <input type="password" name="password1" class="input" id="InputPassword" placeholder="Password" required>
+  </div>
+  {% if message  %}
+    <div class="error" role="alert">
+        <p>{{ message }}</p>
+    </div>
+{% endif %}
+  <div class="positionbutton">
+    <button type="submit" class="submit">Submit</button>
+  </div>
+  
+</form>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Youv'e logged in {% endblock %}
+
+{% block content %}
+<div class="cardMorse">
+    <h1 class="morseh1">String To Morse Code</h1>
+    <div class="Each_function">
+        <form class="form_morse" action="/logged_in" method="post">
+            <div class="eachinput">
+                <label class="label" >Enter String To be converted: </label>
+                <input class="morseinput" type="text" name="stringconvert" placeholder="String" required>
+            </div>
+            <p class="Output"><span class="spanMorse" >Output:</span> {{stringconvert}}</p>
+            <button type="submit" class="button">Check</button>  
+        </form>
+    </div>
+    
+</div>
+<div class="cardString">
+    
+    <h1 class="morseh1">Morse Code To String</h1>
+    <div class="Each_function">
+        <form class="form_morse" action="/logged_in" method="post">
+            <div class="eachinput">
+                <label class="label" >Enter the Morse Code: </label>
+                <input class="morseinput" type="text" name="morsecode" placeholder="Morse Code" required>
+            </div>
+            <p class="Output"><span class="spanMorse">Output:</span> {{decoded}}</p>
+            <button type="submit" class="button">Check</button>  
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

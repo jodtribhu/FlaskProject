@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Login {% endblock %}
+
+{% block content %}
+<div>
+    <h1 class="MorseHeading">Morse Code</h1>
+    <p class="Morsepara">Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal duration called dots and dashes.
+        In our project we have implemented two features. First one is where we convert string to morse code and the second one is converting morse code to string.
+        We used morse code conversion in our project because morse code contains dots and dashes which can easily represented in a binary tree.
+        In the binary tree which we contstructed the left traversal represent dots and the right traversal represent dash. For example,</p>
+     <p> </p>
+     <p class="Morsepara">
+        <br>
+        a) -.... represents 6
+        <br>
+        b) .-.. represents L
+        <br>
+        c) ..-. represents F
+     </p>
+      
+        <div class="Morse">
+            <img class="Morseimage" src="{{url_for('static', filename='MorseCode.jpeg')}}" alt="">
+        </div>
+        
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Login {% endblock %}
+
+{% block content %}
+<div class="card2">
+    <div class="relative">
+        <div class="login">
+            <p>Login</p>
+        </div>
+        <div class="center">
+            <form action="" method="post">
+                <div class="eachinput">
+                <label class="label" for="InputEmail">Email address</label>
+                <input name="email" class="input" id="InputEmail"  placeholder="Email" required>
+                </div>
+                <div class="eachinput">
+                    <label class="label" for="InputPassword">Password</label>
+                    <input class="input" type="password" name="password" class="form-control" id="InputPassword" placeholder="Password" required>
+                </div>
+                {% if error  %}
+                    <div class="error">
+                        <p>*{{ error }}</p>
+                    </div>
+                {% endif %}
+                <div class="tocenter"> 
+                    <button type="submit" class="submit">Submit</button> 
+                </div>  
+                
+             </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
