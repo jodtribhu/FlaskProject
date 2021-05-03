@@ -1,8 +1,39 @@
 from flask import Flask, render_template ,request,url_for,redirect,session
 import pymongo
 import bcrypt
+import requests
+from bs4 import BeautifulSoup
+import re
+
 app = Flask(__name__)
 app.secret_key="testing"
+
+
+#WebScrapping
+
+URL = "https://en.wikipedia.org/wiki/Morse_code"
+r = requests.get(URL)
+morse_text_wikipedia=[]
+morse_text_wikipedia_needed=""
+soup = BeautifulSoup(r.content, 'html5lib') # If this line causes an error, run 'pip install html5lib' or install html5lib
+for para in soup.find_all('p'):
+    l=para.get_text(strip=True)
+    l = re.sub(r"/?\[\d+]", "", l)
+    morse_text_wikipedia.append(l)
+
+#Getting only first 3 paragraphs from wikipedia
+morse_text_wikipedia_needed=morse_text_wikipedia_needed+morse_text_wikipedia[2]+morse_text_wikipedia[3]+morse_text_wikipedia[4]
+print(morse_text_wikipedia_needed)
+
+imagesrc=""
+URL2="https://commons.wikimedia.org/wiki/File:Morse-code-tree.svg"
+r2 = requests.get(URL2)
+soup2= BeautifulSoup(r2.content, 'html5lib') 
+pc = soup2.find('img')
+print()
+print("hello")
+imagesrc=pc['src']
+
 
 client = pymongo.MongoClient("mongodb://localhost:27017")
 db = client.get_database('FlaskDB')
@@ -66,7 +97,7 @@ def encrypt(message):
 
 @app.route("/", methods=[ 'get'])
 def home():
-    return render_template('home.html')
+    return render_template('home.html',morsetext=morse_text_wikipedia_needed,imagesrc=imagesrc)
 
 @app.route("/register", methods=['post', 'get'])
 def index():
