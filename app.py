@@ -15,7 +15,7 @@ URL = "https://en.wikipedia.org/wiki/Morse_code"
 r = requests.get(URL)
 morse_text_wikipedia=[]
 morse_text_wikipedia_needed=""
-soup = BeautifulSoup(r.content, 'html5lib') # If this line causes an error, run 'pip install html5lib' or install html5lib
+soup = BeautifulSoup(r.content, 'html5lib') 
 for para in soup.find_all('p'):
     l=para.get_text(strip=True)
     l = re.sub(r"/?\[\d+]", "", l)
@@ -31,6 +31,13 @@ r2 = requests.get(URL2)
 soup2= BeautifulSoup(r2.content, 'html5lib') 
 pc = soup2.find('img')
 imagesrc=pc['src']
+
+imagesrc4=""
+URL4="https://commons.wikimedia.org/wiki/File:Sorted_binary_tree.png"
+r4 = requests.get(URL4)
+soup4= BeautifulSoup(r4.content, 'html5lib') 
+pc4 = soup4.find('img')
+imagesrc4=pc4['src']
 
 #Getting text for binary tree
 btree_text=[]
@@ -122,7 +129,7 @@ def encrypt(message):
 @app.route("/", methods=[ 'get'])
 def home():
     return render_template('home.html',morsetext=morse_text_wikipedia_needed,imagesrc=imagesrc,btree=req_btree_text[0],li1=terminologies[0],li2=terminologies[1],li3=terminologies[2],
-    li4=terminologies[3],li5=terminologies[4],li6=terminologies[5],li7=terminologies[6])
+    li4=terminologies[3],li5=terminologies[4],li6=terminologies[5],li7=terminologies[6],imagesrc4=imagesrc4)
 
 @app.route("/register", methods=['post', 'get'])
 def index():
