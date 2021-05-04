@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Home {% endblock %}
-
 {% block content %}
 <div class="home">
-    <h1 class="MorseHeading">Morse Code</h1>
-    <p class="Morsepara">{{morsetext}}</p>
+    <h1 class="MorseHeading2">Morse Code</h1>
+    <p class="Morsepara2">{{morsetext}}</p>
      <p> </p>
-     <p class="Morsepara">
+     <p class="Morsepara2">
         <br>
         a) -.... represents 6
         <br>
@@ -16,9 +15,22 @@
      </p>
       
         <div class="Morse">
-            <!-- <img class="Morseimage" src="{{url_for('static', filename='MorseCode.jpeg')}}" alt=""> -->
-            <img src="{{imagesrc}}"  class="Morseimage" alt="">
+            <img src="{{imagesrc}}"  alt="">
         </div>
+    <div>
+        <h1 class="MorseHeading2">Binary Tree</h1>
+        <p class="Morsepara2">{{btree}}</p>
+        <h4 class="MorseHeading3">Terminologies</h4>
+        <ul>
+            <li class="Morsepara2">{{li1}}</li>
+            <li class="Morsepara2">{{li2}}</li>
+            <li class="Morsepara2">{{li3}}</li>
+            <li class="Morsepara2">{{li4}}</li>
+            <li class="Morsepara2">{{li5}}</li>
+            <li class="Morsepara2">{{li6}}</li>
+            <li class="Morsepara2">{{li7}}</li>
+        </ul>
+    </div>
         
 </div>
 

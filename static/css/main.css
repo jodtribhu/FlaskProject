@@ -243,34 +243,30 @@ margin: 0 0.5rem;
   }
 
   /*Home.html*/
-  .MorseHeading{
+.MorseHeading2{
     color: rgb(83, 81, 81);
     text-align: center;
     font-size: 28px;
-    animation: moveInLeft 2s ease-in ;
- 
-
+    font-family:'Montserrat', sans-serif;
   }
-  .Morsepara{
+.MorseHeading3{
+  color: rgb(83, 81, 81);
+  text-align: center;
+  font-size: 20px;
+  font-family:'Montserrat', sans-serif;
+}
+.Morsepara2{
     font-family:'Montserrat', sans-serif;
     line-height: 1.6rem;
     font-size: 18px;
     color: #292828;
     padding:0 30px 0 30px;
-    animation: moveInRight 2s ease-in ;
-    
-  
   }
-  .Morse{
+.Morse{
     display: flex;
     justify-content: center;
   }
-  .Morseimage{
-    position: absolute;
-    width:60%;
-    animation: moveInDown 2s ease-in;
-   
-  }
+
 .signout{
   text-align: center;
   color: #292828;
@@ -279,7 +275,7 @@ margin: 0 0.5rem;
   backface-visibility: hidden;
 }
 
-  @keyframes moveInLeft{
+  /* @keyframes moveInLeft{
     0%{
         opacity:0;
         transform: translateX(-200px);
@@ -317,4 +313,4 @@ margin: 0 0.5rem;
         opacity:1;
         transform: translateY(0);
     }
-  }
+  } */

@@ -23,17 +23,41 @@ for para in soup.find_all('p'):
 
 #Getting only first 3 paragraphs from wikipedia
 morse_text_wikipedia_needed=morse_text_wikipedia_needed+morse_text_wikipedia[2]+morse_text_wikipedia[3]+morse_text_wikipedia[4]
-print(morse_text_wikipedia_needed)
 
+#Getting images  from wikipedia
 imagesrc=""
 URL2="https://commons.wikimedia.org/wiki/File:Morse-code-tree.svg"
 r2 = requests.get(URL2)
 soup2= BeautifulSoup(r2.content, 'html5lib') 
 pc = soup2.find('img')
-print()
-print("hello")
 imagesrc=pc['src']
 
+#Getting text for binary tree
+btree_text=[]
+req_btree_text=[]
+URL3="https://www.studytonight.com/data-structures/introduction-to-binary-trees"
+r3 = requests.get(URL3)
+soup3= BeautifulSoup(r3.content, 'html5lib') 
+for para2 in soup3.find_all('p'):
+    l2=para2.get_text(strip=True)
+    btree_text.append(l2)
+req_btree_text.append(btree_text[0])
+t=[]
+
+for ul in soup3.find_all('ul',{"class": "content"}):
+    lis=ul.find_all('li')
+    for elem in lis:
+        t.append(elem.text.strip())
+terminologies=[]
+terminologies.append(t[0])
+terminologies.append(t[1])
+terminologies.append(t[2])
+terminologies.append(t[3])
+terminologies.append(t[4])
+terminologies.append(t[5])
+terminologies.append(t[6])
+
+print(req_btree_text)
 
 client = pymongo.MongoClient("mongodb://localhost:27017")
 db = client.get_database('FlaskDB')
@@ -97,7 +121,8 @@ def encrypt(message):
 
 @app.route("/", methods=[ 'get'])
 def home():
-    return render_template('home.html',morsetext=morse_text_wikipedia_needed,imagesrc=imagesrc)
+    return render_template('home.html',morsetext=morse_text_wikipedia_needed,imagesrc=imagesrc,btree=req_btree_text[0],li1=terminologies[0],li2=terminologies[1],li3=terminologies[2],
+    li4=terminologies[3],li5=terminologies[4],li6=terminologies[5],li7=terminologies[6])
 
 @app.route("/register", methods=['post', 'get'])
 def index():
